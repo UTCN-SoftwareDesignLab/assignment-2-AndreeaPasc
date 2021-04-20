@@ -10,12 +10,12 @@
         single-line
         hide-details
       ></v-text-field>
+      <v-btn @click="sellBook">Sell Book</v-btn>
     </v-card-title>
     <v-data-table
       :headers="headers"
       :items="books"
       :search="search"
-      @click = "sellBook"
     ></v-data-table>
     <BookDialog
       :opened="dialogVisible"

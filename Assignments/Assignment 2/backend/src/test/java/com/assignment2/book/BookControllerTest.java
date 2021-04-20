@@ -16,6 +16,7 @@ import org.mockito.Mock;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.Collections;
 import java.util.List;
 
 import static com.assignment2.UrlMapping.*;
@@ -115,7 +116,6 @@ public class BookControllerTest extends BaseControllerTest {
                 .andExpect(jsonContentToBe(reqBook));
     }
 
-    //to fix - bad request status
     @Test
     void sell() throws Exception {
         BookDTO reqBook = BookDTO.builder()

@@ -38,6 +38,14 @@ public abstract class BaseControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON));
     }
+    protected ResultActions performGetWithRequestBody(String path, Object body, Object body2, Object body3) throws Exception {
+        return mockMvc.perform(get(path)
+                .content(asJsonString(body))
+                .content(asJsonString(body2))
+                .content(asJsonString(body3))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON));
+    }
 
     protected ResultActions performPostWithRequestBodyPathVariable(String path, String variable, Object body) throws Exception{
         return mockMvc.perform(post(path, variable)
