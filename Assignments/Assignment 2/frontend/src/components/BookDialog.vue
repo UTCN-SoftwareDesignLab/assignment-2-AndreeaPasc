@@ -54,7 +54,7 @@ export default {
             author: this.book.author,
             genre: this.book.genre,
             price: this.book.price,
-            quantity: this.book.quantity
+            quantity: this.book.quantity,
           })
           .then(() => this.$emit("refresh"));
       }

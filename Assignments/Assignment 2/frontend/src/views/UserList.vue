@@ -10,6 +10,9 @@
         single-line
         hide-details
       ></v-text-field>
+      <v-btn @click="addUser">Add User</v-btn>
+      <v-btn @click="deleteUser">Delete User</v-btn>
+      <v-btn @click="editUser">Edit User</v-btn>
     </v-card-title>
     <v-data-table
       :headers="headers"
@@ -35,12 +38,27 @@ export default {
           sortable: false,
           value: "name",
         },
-        { text: "Email", value: "email" },
-        { text: "Roles", value: "roles" },
+        {text: "Email", value: "email"},
+        {text: "Roles", value: "roles"},
       ],
     };
   },
-  methods: {},
+  methods: {
+
+    editUser(user) {
+      this.selectedBook = user;
+      this.dialogVisible = true;
+    },
+
+    deleteUser(user) {
+      this.selectedBook = user;
+      this.dialogVisible = true;
+    },
+
+    addUser() {
+      this.dialogVisible = true;
+    },
+  },
   async created() {
     this.users = await api.users.allUsers();
   },

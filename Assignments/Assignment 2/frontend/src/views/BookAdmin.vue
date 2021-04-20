@@ -4,23 +4,26 @@
       Books
       <v-spacer></v-spacer>
       <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
       ></v-text-field>
+      <v-btn @click="addBook">Add Book</v-btn>
+      <v-btn @click="deleteBook">Delete Book</v-btn>
+      <v-btn @click="editBook">Edit Book</v-btn>
     </v-card-title>
     <v-data-table
-      :headers="headers"
-      :items="books"
-      :search="search"
-      @click = "sellBook"
+        :headers="headers"
+        :items="books"
+        :search="search"
+        @click:row="editBook"
     ></v-data-table>
     <BookDialog
-      :opened="dialogVisible"
-      :book="selectedBook"
-      @refresh="refreshList"
+        :opened="dialogVisible"
+        :book="selectedBook"
+        @refresh="refreshList"
     ></BookDialog>
   </v-card>
 </template>
@@ -53,17 +56,19 @@ export default {
     };
   },
   methods: {
-  //   editBook(book) {
-  //     this.selectedBook = book;
-  //     this.dialogVisible = true;
-  //   },
-  //   addBook() {
-  //     this.dialogVisible = true;
-  //   },
-    sellBook(book){
-      this.selectedBook = book;
-      this.dialogVisible = true;
-    },
+      editBook(book) {
+        this.selectedBook = book;
+        this.dialogVisible = true;
+      },
+
+      deleteBook(book){
+        this.selectedBook = book;
+        this.dialogVisible = true;
+      },
+
+      addBook() {
+        this.dialogVisible = true;
+      },
     async refreshList() {
       this.dialogVisible = false;
       this.selectedBook = {};

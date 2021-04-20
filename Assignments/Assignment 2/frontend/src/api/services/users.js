@@ -8,4 +8,27 @@ export default {
       }
     );
   },
+
+    addUser(user) {
+        return HTTP.post(BASE_URL + "/users", user, { headers: authHeader() }).then(
+            (response) => {
+            return response.data;
+            }
+        );
+    },
+    editUser(user) {
+        return HTTP.patch(BASE_URL + "/users", user, {
+            headers: authHeader(),
+        }).then((response) => {
+            return response.data;
+        });
+    },
+
+    deleteUser(user) {
+        return HTTP.delete(BASE_URL + "/users", user, {
+            headers: authHeader(),
+        }).then((response) => {
+            return response.data;
+        });
+    },
 };

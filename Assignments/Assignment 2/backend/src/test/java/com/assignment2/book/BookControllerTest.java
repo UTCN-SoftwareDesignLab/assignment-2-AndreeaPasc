@@ -129,7 +129,7 @@ public class BookControllerTest extends BaseControllerTest {
         //when(bookService.create(reqBook)).thenReturn(reqBook);
         when(bookService.sell(reqBook.getId(), 2)).thenReturn(true);
         ResultActions result = performPostWithRequestBodyPathVariable(BOOK + ENTITY + SELL, reqBook.getId().toString(), 2);
-        System.out.print(result.andReturn().getResponse().getContentAsString());
+        //System.out.print(result.andReturn().getResponse().getContentAsString());
         result.andExpect(status().isOk());
     }
 
@@ -147,5 +147,4 @@ public class BookControllerTest extends BaseControllerTest {
         ResultActions result = performDeleteWithPathVariable(BOOK + ENTITY, reqBook.getId().toString());
         result.andExpect(status().isOk());
     }
-
 }

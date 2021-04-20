@@ -76,7 +76,7 @@ export default {
     mode: "login",
     login: {
       email: "",
-      username: "user",
+      username: "User",
       password: "Pass1!",
     },
   }),
