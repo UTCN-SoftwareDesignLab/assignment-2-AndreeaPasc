@@ -13,6 +13,7 @@
       <v-btn @click="addBook">Add Book</v-btn>
       <v-btn @click="deleteBook">Delete Book</v-btn>
       <v-btn @click="editBook">Edit Book</v-btn>
+      <v-btn @click="user">User</v-btn>
     </v-card-title>
     <v-data-table
         :headers="headers"
@@ -31,6 +32,7 @@
 <script>
 import api from "../api";
 import BookDialog from "../components/BookDialog";
+import router from "../router";
 
 export default {
   name: "BookList",
@@ -56,6 +58,11 @@ export default {
     };
   },
   methods: {
+
+      user(){
+        router.push("./users");
+      },
+
       editBook(book) {
         this.selectedBook = book;
         this.dialogVisible = true;

@@ -1,6 +1,5 @@
 package com.assignment2.book.controller;
 
-
 import com.assignment2.book.model.dto.BookDTO;
 import com.assignment2.book.service.BookService;
 import com.assignment2.security.dto.MessageResponse;
@@ -42,6 +41,11 @@ public class BookController {
         return ResponseEntity
                 .badRequest()
                 .body(new MessageResponse("Error: not enough book in stock!"));
+    }
+
+    @GetMapping(FILTER)
+    public List<BookDTO> filter(@RequestBody String title, @RequestBody String author, @RequestBody String genre){
+        return bookService.filter(title, author, genre);
     }
 
     @GetMapping(EXPORT_REPORT)

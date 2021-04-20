@@ -15,4 +15,5 @@ public class UrlMapping {
 
     public static final String SELL = "/sell-book";
 
+    public static final String FILTER = "/filter";
 }

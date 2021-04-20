@@ -28,6 +28,10 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
+    public List<BookDTO> filter(String title, String author, String genre){
+        return bookRepository.findByTitleContainingAndAuthorContainingAndGenreContainingIgnoreCase(title, author, genre).stream().map(bookMapper::toDTO).collect(Collectors.toList());
+    }
+
     public BookDTO create(BookDTO book) {
         return bookMapper.toDTO(bookRepository.save(
                 bookMapper.fromDTO(book)
